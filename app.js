@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors")
 const app = express();
+const transactionController = require("./Controllers/transactionController.js")
 // const cors = cors();
 
 //___________________
@@ -16,5 +17,11 @@ app.use(cors());
 app.get("/", (req, res) => {
   res.send("Welcome to the budgeting app");
 });
+
+app.use("/transactions", transactionController)
+
+app.get("*", (req, res) => {
+  res.status(404).send("Page Not Found")
+})
 
 module.exports = app;
