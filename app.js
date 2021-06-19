@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const bodyParser = require('body-parser');
 const app = express();
 const transactionController = require("./Controllers/transactionController.js");
 // const cors = cors();
@@ -9,7 +10,7 @@ const transactionController = require("./Controllers/transactionController.js");
 //___________________
 
 app.use(express.json()); // returns middleware that only parses JSON
-
+app.use(bodyParser.json());
 // this allows any app/site from anywhere access your API. This is a great way to start to get things up and running. Later, add restrictions, as needed.
 app.use(cors());
 // const corsOptions ={

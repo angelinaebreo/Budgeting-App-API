@@ -7,8 +7,8 @@ const verify = (req, res, next) => {
 };
 
 const validateBody = (req, res, next) => {
-  const { name, date, type, amount } = req.body;
-  if (!name || !date || !type || !amount) {
+  const { name, date, type, amount, from } = req.body;
+  if (!name || !date || !amount || !from) {
     res.status(400).send();
   }
   return next();
@@ -18,7 +18,7 @@ const validateBody = (req, res, next) => {
 
 // Get a list (index) of all transactions
 transactions.get("/", (req, res) => {
-  console.log(transactionsArray);
+ 
   res.status(200).json(transactionsArray);
 });
 
@@ -34,9 +34,18 @@ transactions.get("/:id", (req, res) => {
 
 // Create a new transaction
 transactions.post("/", validateBody, (req, res) => {
-  transactionsArray.push(req.body);
+  console.log(req.body.amount)
+  // transactionsArray.push(req.body);
+  if (req.body.amount > 0) {
+    req.body.type = "credit"
+    console.log(req.body)
+    transactionsArray.push(req.body)
+  } else {
+    req.body.type = "debit"
+   transactionsArray.push(req.body)
+  }
   res.json(transactionsArray[transactionsArray.length - 1]);
-  res.redirect("/");
+  //res.redirect("/");
 });
 
 // Delete a transaction

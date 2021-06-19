@@ -1,20 +1,26 @@
 module.exports = [
   {
     name: "Income",
-    date: "April 1",
+    from: "Employer",
+    date: "2020-12-12",
     type: "credit",
     amount: 1000,
+    notes: "Yay"
   },
   {
     name: "Taxes",
-    date: "April 1",
+    from: "IRS",
+    date: "2020-12-12",
     type: "debit",
     amount: -300,
+    notes: "Adjust your withholding"
   },
   {
     name: "Retirement",
-    date: "April 1",
+    from: "Fidelity",
+    date: "2020-12-12",
     type: "debit",
     amount: -200,
+    notes: "Pay yourself first"
   },
 ];
