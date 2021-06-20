@@ -2,9 +2,12 @@ const express = require("express");
 const transactions = express.Router();
 const transactionsArray = require("../Models/transactions.js");
 
+
 const verify = (req, res, next) => {
   next();
 };
+
+
 
 const validateBody = (req, res, next) => {
   const { name, date, type, amount, from } = req.body;
