@@ -12,13 +12,16 @@ const jsonParser = bodyParser.json();
 
 budget.get("/", (req, res) => {
   res.status(200).json(budgetAmount);
+  
  
 });
 
 budget.put("/", jsonParser, (req, res) => {
+    console.log(budgetAmount)
     console.log(req.body)
-    budgetAmount[0].budget = req.body
+    budgetAmount[0] = req.body
     res.json(budgetAmount)
+    console.log(budgetAmount)
 })
 
 
