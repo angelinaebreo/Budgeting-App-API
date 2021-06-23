@@ -7,8 +7,6 @@ total.get("/", (req, res) => {
     (a, b) => a + parseFloat(b.amount),
     0
   );
-  console.log(totalSum);
-  console.log(typeof totalSum);
   res.status(200).json(totalSum);
 });
 
