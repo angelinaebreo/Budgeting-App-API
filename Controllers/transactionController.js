@@ -27,11 +27,8 @@ transactions.get("/:id", (req, res) => {
 
 // Create a new transaction
 transactions.post("/", validateBody, (req, res) => {
-  console.log(req.body.amount);
-  // transactionsArray.push(req.body);
   if (req.body.amount > 0) {
     req.body.type = "credit";
-    console.log(req.body);
     transactionsArray.push(req.body);
   } else {
     req.body.type = "debit";
